@@ -1,0 +1,8 @@
+module iperf3Lib [system] {
+  header "iperf.h"
+  header "iperf_api.h"
+  header "queue.h"
+  header "iperf_time.h"
+  header "timer.h"
+  export *
+}
