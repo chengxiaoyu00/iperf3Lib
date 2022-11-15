@@ -4,5 +4,6 @@ module iperf3Lib [system] {
   header "queue.h"
   header "iperf_time.h"
   header "timer.h"
+  header "cjson.h"
   export *
 }
