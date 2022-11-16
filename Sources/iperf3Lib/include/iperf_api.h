@@ -341,6 +341,8 @@ void iperf_check_total_rate(struct iperf_test *, iperf_size_t);
 int iperf_json_start(struct iperf_test *);
 int iperf_json_finish(struct iperf_test *);
 
+static cJSON * JSON_read(int fd);
+
 /* CPU affinity routines */
 int iperf_setaffinity(struct iperf_test *, int affinity);
 int iperf_clearaffinity(struct iperf_test *);
