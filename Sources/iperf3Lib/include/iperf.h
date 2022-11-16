@@ -378,6 +378,7 @@ struct iperf_test
     void      (*on_test_start)(struct iperf_test *);
     void      (*on_connect)(struct iperf_test *);
     void      (*on_test_finish)(struct iperf_test *);
+    void      (*on_json_log_finish)(struct iperf_test *);
 
     /* cJSON handles for use when in -J mode */\
     cJSON *json_top;

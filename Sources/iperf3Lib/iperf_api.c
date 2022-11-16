@@ -4650,6 +4650,9 @@ iperf_json_finish(struct iperf_test *test)
     if (test->json_output_string == NULL)
         return -1;
     fprintf(test->outfile, "%s-----=-====-===--=-=\n", test->json_output_string);
+    
+    if (test->on_json_log_finish)
+        test->on_json_log_finish(test);
     iflush(test);
     cJSON_Delete(test->json_top);
     test->json_top = test->json_start = test->json_connected = test->json_intervals = test->json_server_output = test->json_end = NULL;
