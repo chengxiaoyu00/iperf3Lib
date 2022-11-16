@@ -6,6 +6,8 @@ final class iperf3LibTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
+        let json = getJsonInfo(1)
+        XCTAssertEqual(json, nil)
         let ip = iperf_test()
         XCTAssertEqual(ip.title, nil)
     }

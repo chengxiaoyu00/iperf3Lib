@@ -2599,7 +2599,10 @@ JSON_write(int fd, cJSON *json)
 }
 
 /*************************************************************/
-
+struct cJSON * getJsonInfo(int fd) 
+{
+    return JSON_read(fd); 
+}
 static cJSON *
 JSON_read(int fd)
 {
