@@ -3275,6 +3275,7 @@ iperf_print_intermediate(struct iperf_test *test)
     struct iperf_stream *sp = NULL;
     struct iperf_interval_results *irp;
     struct iperf_time temp_time;
+    struct trans_ferred transfd;
     cJSON *json_interval;
     cJSON *json_interval_streams;
 
@@ -3304,7 +3305,7 @@ iperf_print_intermediate(struct iperf_test *test)
 		printf("interval_len %f bytes_transferred %" PRIu64 "\n", interval_len, irp->bytes_transferred);
 	    }
         if (test->on_test_progress_change) {
-            struct trans_ferred transfd;
+            
             transfd.bytes_transferred = irp->bytes_transferred;
             transfd.interval_len = interval_len;
             test->on_test_progress_change(&transfd);
