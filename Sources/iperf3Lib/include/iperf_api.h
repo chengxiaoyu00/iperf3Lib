@@ -38,7 +38,7 @@
 extern "C" { /* open extern "C" */
 #endif
 
-
+struct trans_ferred;
 struct iperf_test;
 struct iperf_stream_result;
 struct iperf_interval_results;
