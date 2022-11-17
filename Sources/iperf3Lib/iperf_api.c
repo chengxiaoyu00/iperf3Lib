@@ -3303,7 +3303,12 @@ iperf_print_intermediate(struct iperf_test *test)
 	    if (test->debug) {
 		printf("interval_len %f bytes_transferred %" PRIu64 "\n", interval_len, irp->bytes_transferred);
 	    }
-
+        if (test->on_transferred) {
+            struct transferred *tf;
+            tf->bytes_transferred = irp->bytes_transferred;
+            tf->interval_len = interval_len;
+            test->on_transferred(tf);
+        }
 	    /*
 	     * If the interval is at least 10% the normal interval
 	     * length, or if there were actual bytes transferred,
