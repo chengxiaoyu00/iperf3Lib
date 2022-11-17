@@ -3307,7 +3307,8 @@ iperf_print_intermediate(struct iperf_test *test)
             struct transferred *tf;
             tf->bytes_transferred = irp->bytes_transferred;
             tf->interval_len = interval_len;
-            test->on_transferred(tf);
+            test->trfInfo = tf;
+            test->on_transferred(test);
         }
 	    /*
 	     * If the interval is at least 10% the normal interval
