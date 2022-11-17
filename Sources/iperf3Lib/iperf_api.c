@@ -3305,15 +3305,11 @@ iperf_print_intermediate(struct iperf_test *test)
 	    }
         if (test->on_test_progress_change) {
             struct trans_ferred *tf;
-            tf = (struct trans_ferred *) malloc(sizeof(struct trans_ferred));
             if (tf) {
-                /* initialize everything to zero */
-                memset(test, 0, sizeof(struct trans_ferred));
                 tf->bytes_transferred = irp->bytes_transferred;
                 tf->interval_len = interval_len;
                 test->on_test_progress_change(tf);
             }
-            
         }
 	    /*
 	     * If the interval is at least 10% the normal interval
