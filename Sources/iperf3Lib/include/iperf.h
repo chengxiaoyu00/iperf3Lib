@@ -263,7 +263,7 @@ enum debug_level {
     DEBUG_LEVEL_MAX = 4
 };
 
-struct transferred {
+struct trans_ferred {
     double    interval_len;
     iperf_size_t       bytes_transferred;
 };
@@ -376,14 +376,13 @@ struct iperf_test
     struct iperf_settings *settings;
 
     SLIST_HEAD(plisthead, protocol) protocols;
-    struct transferred *trfInfo;
     /* callback functions */
     void      (*on_new_stream)(struct iperf_stream *);
     void      (*on_test_start)(struct iperf_test *);
     void      (*on_connect)(struct iperf_test *);
     void      (*on_test_finish)(struct iperf_test *);
     void      (*on_json_log_finish)(struct iperf_test *);
-    void      (*on_transferred)(struct iperf_test *);
+    void      (*on_test_progress_change)(struct trans_ferred *);
     /* cJSON handles for use when in -J mode */\
     cJSON *json_top;
     cJSON *json_start;
