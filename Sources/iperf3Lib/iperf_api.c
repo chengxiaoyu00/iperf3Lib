@@ -3304,12 +3304,10 @@ iperf_print_intermediate(struct iperf_test *test)
 		printf("interval_len %f bytes_transferred %" PRIu64 "\n", interval_len, irp->bytes_transferred);
 	    }
         if (test->on_test_progress_change) {
-            struct trans_ferred *tf;
-            if (tf) {
-                tf->bytes_transferred = irp->bytes_transferred;
-                tf->interval_len = interval_len;
-                test->on_test_progress_change(tf);
-            }
+            struct trans_ferred transfd;
+            transfd.bytes_transferred = irp->bytes_transferred;
+            transfd.interval_len = interval_len;
+            test->on_test_progress_change(&transfd);
         }
 	    /*
 	     * If the interval is at least 10% the normal interval
